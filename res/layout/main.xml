@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:id="@+id/LinearLayout2"
+    android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
@@ -11,20 +12,137 @@
         android:layout_weight="1"
         android:background="#0000FF"
         android:gravity="center"
-        android:text="Pulsa sobre esta vista"
+        android:text="Press here"
         android:textSize="10pt" />
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.32"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
 
         <TextView
-            android:id="@+id/TextViewSalida"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:text="Pulsaciones:" />
-    </ScrollView>
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tvAction"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="2dp"
+            android:text="Action" />
+
+        <TextView
+            android:id="@+id/tvAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="28dp"
+            android:layout_toRightOf="@+id/textView1"
+            android:text="Not pressed yet"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tvPressure"
+            android:layout_width="50dp"
+            android:layout_height="28dp"
+            android:layout_alignLeft="@+id/tvAction"
+            android:layout_alignTop="@+id/textView2"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/tvPressureMax"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/pbPressure"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/pbPressure"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/tvSizeMax"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/pbSize"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/pbSize"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="50dp"
+            android:layout_height="28dp"
+            android:layout_alignLeft="@+id/tvAction"
+            android:layout_alignTop="@+id/textView12"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ProgressBar
+            android:id="@+id/pbPressure"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvPressure"
+            android:layout_toRightOf="@+id/tvPressure"
+            android:focusable="false"
+            android:max="100"
+            android:maxWidth="100dp"
+            android:progress="50" />
+
+        <ProgressBar
+            android:id="@+id/pbSize"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/pbPressure"
+            android:layout_alignTop="@+id/tvSize"
+            android:focusable="false"
+            android:max="100"
+            android:maxWidth="100dp"
+            android:progress="50" />
+
+        <Button
+            android:id="@+id/buReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/tvSizeMax"
+            android:layout_below="@+id/tvSize"
+            android:layout_marginTop="26dp"
+            android:onClick="doReset"
+            android:text="Reset" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignLeft="@id/textView1"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="19dp"
+            android:gravity="center_vertical"
+            android:text="Pressure" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_alignLeft="@id/textView1"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="25dp"
+            android:gravity="center_vertical"
+            android:text="Size" />
+
+    </RelativeLayout>
 
 </LinearLayout>
