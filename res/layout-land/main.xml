@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_margin="6dp"
-        android:layout_weight="1.45"
+        android:layout_weight="1"
         android:background="#0000FF"
         android:gravity="center"
         android:text="Press here"
@@ -17,9 +17,9 @@
 
     <RelativeLayout
         android:id="@+id/RelativeLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.25" >
+        android:layout_weight="0.19" >
 
         <TextView
             android:id="@+id/textView1"
@@ -66,9 +66,8 @@
             android:id="@+id/tvPressureMax"
             android:layout_width="75dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/pbPressure"
-            android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/pbPressure"
             android:gravity="center_vertical|center_horizontal"
             android:text="0"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -87,9 +86,9 @@
             android:id="@+id/tvSizeMax"
             android:layout_width="75dp"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvPressureMax"
+            android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/pbSize"
-            android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/pbSize"
             android:gravity="center_vertical|center_horizontal"
             android:text="0"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -110,6 +109,9 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/tvPressure"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/tvPressureMax"
             android:layout_toRightOf="@+id/tvPressure"
             android:focusable="false"
             android:max="100"
@@ -123,6 +125,8 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/pbPressure"
             android:layout_alignTop="@+id/tvSize"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/tvSizeMax"
             android:focusable="false"
             android:max="100"
             android:maxWidth="100dp"
@@ -132,10 +136,10 @@
             android:id="@+id/buReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/tvSizeMax"
+            android:layout_alignLeft="@+id/tvSize"
+            android:layout_alignRight="@+id/pbSize"
             android:layout_below="@+id/tvSize"
             android:layout_marginTop="26dp"
-            android:layout_toRightOf="@+id/textView1"
             android:onClick="doReset"
             android:text="Reset" />
 
