@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
@@ -15,152 +16,44 @@
         android:text="Press here"
         android:textSize="10pt" />
 
-    <RelativeLayout
-        android:id="@+id/RelativeLayout1"
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.19" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tvAction"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:gravity="center_vertical"
-            android:paddingLeft="2dp"
-            android:text="Action" />
+        android:layout_weight="0.18"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/tvAction"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="28dp"
-            android:layout_toRightOf="@+id/textView1"
+            android:gravity="center_vertical|center_horizontal"
             android:text="Not pressed yet"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1"
-            android:layout_marginTop="18dp"
-            android:gravity="center_vertical"
-            android:text="Pressure" />
-
-        <TextView
-            android:id="@+id/tvPressure"
-            android:layout_width="50dp"
-            android:layout_height="28dp"
-            android:layout_alignLeft="@+id/tvAction"
-            android:layout_alignTop="@+id/textView2"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="0"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/tvPressureMax"
-            android:layout_width="75dp"
+        <fragment
+            android:id="@+id/frPressure"
+            android:name="com.example.pantallatactil.ProgressFragment"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/pbPressure"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="0"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:layout_marginTop="20dp"
+            tools:layout="@layout/fragment_progress" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="26dp"
-            android:gravity="center_vertical"
-            android:text="Size" />
-
-        <TextView
-            android:id="@+id/tvSizeMax"
-            android:layout_width="75dp"
+        <fragment
+            android:id="@+id/frSize"
+            android:name="com.example.pantallatactil.ProgressFragment"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvPressureMax"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/pbSize"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="0"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/tvSize"
-            android:layout_width="50dp"
-            android:layout_height="28dp"
-            android:layout_alignLeft="@+id/tvAction"
-            android:layout_alignTop="@+id/textView12"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="0"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <ProgressBar
-            android:id="@+id/pbPressure"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tvPressure"
-            android:layout_alignWithParentIfMissing="true"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/tvPressureMax"
-            android:layout_toRightOf="@+id/tvPressure"
-            android:focusable="false"
-            android:max="100"
-            android:maxWidth="100dp"
-            android:progress="50" />
-
-        <ProgressBar
-            android:id="@+id/pbSize"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/pbPressure"
-            android:layout_alignTop="@+id/tvSize"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/tvSizeMax"
-            android:focusable="false"
-            android:max="100"
-            android:maxWidth="100dp"
-            android:progress="50" />
+            android:layout_marginTop="20dp"
+            tools:layout="@layout/fragment_progress" />
 
         <Button
             android:id="@+id/buReset"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvSize"
-            android:layout_alignRight="@+id/pbSize"
-            android:layout_below="@+id/tvSize"
             android:layout_marginTop="26dp"
             android:onClick="doReset"
             android:text="Reset" />
-
-        <ImageView
-            android:id="@+id/imPressureAlert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvPressureMax"
-            android:layout_alignTop="@+id/tvPressureMax"
-            android:src="@drawable/alert"
-            android:visibility="visible" />
-
-        <ImageView
-            android:id="@+id/imSizeAlert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tvSizeMax"
-            android:layout_alignTop="@+id/tvSizeMax"
-            android:src="@drawable/alert"
-            android:visibility="visible" />
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
