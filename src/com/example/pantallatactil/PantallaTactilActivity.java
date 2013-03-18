@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -14,10 +15,12 @@ public class PantallaTactilActivity extends Activity implements OnTouchListener 
 	private TextView tvPressure;
 	private TextView tvPressureMax;
 	private ProgressBar pbPressure;
+	private ImageView imPressureAlert;
 	private float mPressureMax = 0;
 	private TextView tvSize;
 	private TextView tvSizeMax;
 	private ProgressBar pbSize;
+	private ImageView imSizeAlert;
 	private float mSizeMax = 0;
 
 	@Override
@@ -30,10 +33,12 @@ public class PantallaTactilActivity extends Activity implements OnTouchListener 
 		tvAction = (TextView) findViewById(R.id.tvAction);
 		tvPressure = (TextView) findViewById(R.id.tvPressure);
 		tvPressureMax = (TextView) findViewById(R.id.tvPressureMax);
+		imPressureAlert = (ImageView) findViewById(R.id.imPressureAlert);
 		pbPressure = (ProgressBar) findViewById(R.id.pbPressure);
 		tvSize = (TextView) findViewById(R.id.tvSize);
 		tvSizeMax = (TextView) findViewById(R.id.tvSizeMax);
 		pbSize = (ProgressBar) findViewById(R.id.pbSize);
+		imSizeAlert = (ImageView) findViewById(R.id.imSizeAlert);
 
 		doReset(null);
 	}
@@ -102,8 +107,18 @@ public class PantallaTactilActivity extends Activity implements OnTouchListener 
 	private void doProgress(float aPressure, float aSize) {
 		int iPressure = Math.round(aPressure * 100);
 		pbPressure.setProgress(iPressure);
+		if (iPressure > 100) {
+			imPressureAlert.setVisibility(View.VISIBLE);
+		}else{
+			imPressureAlert.setVisibility(View.GONE);
+		}
 
 		int iSize = Math.round(aSize * 100);
 		pbSize.setProgress(iSize);
+		if (iSize > 100) {
+			imSizeAlert.setVisibility(View.VISIBLE);
+		}else{
+			imSizeAlert.setVisibility(View.GONE);
+		}
 	}
 }
