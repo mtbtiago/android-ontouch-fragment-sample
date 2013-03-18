@@ -40,14 +40,25 @@
         android:id="@+id/imAlert"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_alignTop="@+id/tvMax"
-        android:layout_toLeftOf="@+id/tvMax"
+        android:layout_alignTop="@+id/tvMin"
+        android:layout_toLeftOf="@+id/tvMin"
         android:src="@drawable/alert"
         android:visibility="visible" />
 
     <TextView
+        android:id="@+id/tvMin"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/tvMax"
+        android:layout_toLeftOf="@+id/tvMax"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
         android:id="@+id/tvMax"
-        android:layout_width="75dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"

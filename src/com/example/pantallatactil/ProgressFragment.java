@@ -14,9 +14,11 @@ public class ProgressFragment extends Fragment {
 	private TextView tvValueName;
 	private TextView tvValue;
 	private TextView tvValueMax;
+	private TextView tvValueMin;
 	private ProgressBar pbValue;
 	private ImageView imAlert;
 	private float mValueMax = 0;
+	private float mValueMin = 0xFFFF;
 	public static final boolean RESET = true;
 	private String valueName;
 
@@ -41,6 +43,7 @@ public class ProgressFragment extends Fragment {
 		tvValueName = (TextView) view.findViewById(R.id.tvValueName);
 		tvValue = (TextView) view.findViewById(R.id.tvValue);
 		tvValueMax = (TextView) view.findViewById(R.id.tvMax);
+		tvValueMin = (TextView) view.findViewById(R.id.tvMin);
 		imAlert = (ImageView) view.findViewById(R.id.imAlert);
 		pbValue = (ProgressBar) view.findViewById(R.id.pbValue);
 		return view;
@@ -62,12 +65,17 @@ public class ProgressFragment extends Fragment {
 	}
 
 	public void UpdateValue(boolean aReset, float aValue) {
+		if ((aValue < mValueMin) && (aValue != 0)) {
+			mValueMin = aValue;
+		}
 		if (aValue > mValueMax) {
 			mValueMax = aValue;
 		}
 		if (aReset) {
+			tvValueMin.setText("");
 			tvValueMax.setText("");
 		} else {
+			tvValueMin.setText(cutTo4Chars(mValueMin));
 			tvValueMax.setText(cutTo4Chars(mValueMax));
 		}
 		tvValue.setText(cutTo4Chars(aValue));
